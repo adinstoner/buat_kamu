@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <meta name="google" content="notranslate">
+  <link rel="shortcut icon" type="image/png" href="img/favicon.png" />
+  <title>finish :)</title>
+  <!-- Google Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400&display=swap" rel="stylesheet">
+  <!-- My Style -->
+</head>
+<style>
+    body {
+        display: grid;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background-color: #f0f0f0;
+        overflow: hidden; /* Menghindari scrollbar */
+        background-image: url(kamu.jpeg);
+        background-size: cover;
+        background-position: center;
+    }
+    .image-container {
+        position: relative;
+        width: 300px; /* Lebar gambar */
+        height: 200px; /* Tinggi gambar */
+    }
+    .image {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        opacity: 0; /* Mulai dengan transparan */
+        transition: opacity 1s; /* Transisi untuk efek muncul */
+        border-radius: 30px;
+        box-shadow: 10px 10px 10px black;
+    }
+    h1{
+        text-shadow: 20px 20px 20px greenyellow;
+        color: aquamarine;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        cursor: help;
+    }
+    button{
+        background-color: aquamarine;
+        box-shadow: 5px 10px 5px aquamarine;
+       transition: all 0.5s;
+       cursor: pointer;
+       border-radius: 5px;
+    }
+    
+    button:hover{
+        border-radius: 10px;
+        background-color: aqua;
+    }
+    button:active{
+        background-color: red;
+    }
+    input{
+    border: 5px solid grey;
+    box-shadow: 5px 5px 5px 5px hotpink;
+    width: 200px;
+    height: 50px;
+}
+footer{
+  color: hotpink;
+}
+
+</style>
+<body>
+  <audio class="lagu" loop autoplay>
+    <source src="musikiyafix.mp3">
+    </source>
+    Your browser isn't invited for super fun audio time.
+  </audio>
+  
+  <div class="image-container">
+    <img src="kamu.jpeg" alt="Gambar 1" class="image" id="image1">
+    <img src="nurul1.jpg" alt="Gambar 2" class="image" id="image2">
+    <img src="kamu1.jpeg" alt="Gambar 3" class="image" id="image3">
+    <img src="kamu2.jpeg" alt="Gambar 1" class="image" id="image1">
+    <img src="kamu3.jpeg" alt="Gambar 2" class="image" id="image2">
+    <img src="kamu4.jpeg" alt="Gambar 3" class="image" id="image3">
+    <img src="kamu2.jpeg" alt="Gambar 1" class="image" id="image1">
+    <img src="kamu3.jpeg" alt="Gambar 2" class="image" id="image2">
+    <img src="kamu4.jpeg" alt="Gambar 3" class="image" id="image3">
+    
+</div>
+<div>
+    <p><input type="text" id="message" placeholder="Tulis Pesan disini yaa "/>
+    <button onclick="sendMessage()">Kirim Yaa</button>
+</div>
+<p class="responetext"></p>
+
+<script>
+    const images = document.querySelectorAll('.image');
+    let currentIndex = 0;
+
+    function showNextImage() {
+        // Sembunyikan gambar saat ini
+        images[currentIndex].style.opacity = 0;
+
+        // Update index gambar berikutnya
+        currentIndex = (currentIndex + 1) % images.length;
+
+        // Tampilkan gambar berikutnya
+        images[currentIndex].style.opacity = 1;
+
+        // Panggil fungsi ini lagi setelah 3 detik
+        setTimeout(showNextImage, 3000); // Ganti gambar setiap 3 detik
+    }
+
+    // Mulai animasi
+    showNextImage();
+
+    // kirim balasan whatsap
+    function sendMessage() {
+    var message = document.getElementById("message").value;
+    var phoneNumber = "6282262941556"; // Ganti dengan nomor WhatsApp tujuan
+    var url = "https://wa.me/" + phoneNumber + "?text=" + encodeURIComponent(message);
+    window.open(url, "_blank");
+    }
+    //popup animation
+       
+window.addEventListener('load', () => {
+    Swal.fire({
+      title: 'Apa yang Kamu Rasain?',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Senang',
+      cancelButtonText: 'Engga',
+    }).then((result) => {
+      if (result.isConfirmed) {
+        document.querySelector('.lagu').play();
+        animationTimeline();
+      } 
+      else {
+        animationTimeline();
+      }
+    });
+  });
+  
+  // kirim balasan whatsap
+  function sendMessage() {
+    var message = document.getElementById("message").value;
+    var phoneNumber = "6282262941556"; // Ganti dengan nomor WhatsApp tujuan
+    var url = "https://wa.me/" + phoneNumber + "?text=" + encodeURIComponent(message);
+    window.open(url, "_blank");
+  }
+                         
+</script>
+
+</body>
+<div class="container">
+  <p>&copy; 2025-created by @Adin-Hasmadin.</p>
+</div>
+</footer>
+<!-- Greensock -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/gsap.min.js"></script>
+<!-- Sweetalert -->
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</html>
